@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop | Amatista Studio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: { extend: { colors: { 'amatista-bg': '#F9F8F4', 'amatista-text': '#2A2A2A', 'amatista-accent': '#B4A2A5' }, fontFamily: { 'serif': ['"Cormorant Garamond"', 'serif'], 'sans': ['"Montserrat"', 'sans-serif'] } } }
+        }
+    </script>
+    <style>
+        body { background-color: #F9F8F4; color: #2A2A2A; overflow-x: hidden; }
+        .fade-in-section { opacity: 0; transform: translateY(30px); transition: all 1.2s ease-out; }
+        .fade-in-section.is-visible { opacity: 1; transform: none; }
+        .img-hover-zoom { overflow: hidden; }
+        .img-hover-zoom img { transition: transform 1.5s ease; }
+        .img-hover-zoom:hover img { transform: scale(1.03); }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-amatista-accent selection:text-white">
+
+    <nav class="w-full z-50 bg-amatista-bg py-6 px-8 flex justify-between items-center border-b border-gray-200">
+        <div class="hidden md:flex space-x-8 text-xs tracking-widest uppercase text-amatista-text font-light">
+            <a href="index.html" class="hover:text-amatista-accent transition-colors">Inicio</a>
+            <a href="shop.html" class="text-amatista-accent">Shop</a>
+        </div>
+        <div class="text-center flex-grow md:flex-grow-0">
+            <h1 class="font-serif text-3xl md:text-4xl tracking-widest text-amatista-text">AMATISTA</h1>
+        </div>
+        <div class="hidden md:flex space-x-8 text-xs tracking-widest uppercase text-amatista-text font-light">
+            <a href="nosotros.html" class="hover:text-amatista-accent transition-colors">Nosotros</a>
+            <a href="contacto.html" class="hover:text-amatista-accent transition-colors">Contacto</a>
+        </div>
+    </nav>
+
+    <header class="py-24 px-6 text-center fade-in-section is-visible">
+        <h1 class="font-serif text-5xl md:text-6xl text-amatista-text mb-6">Colección</h1>
+        <div class="flex justify-center space-x-8 text-xs tracking-widest uppercase text-gray-400 font-light">
+            <a href="#" class="text-amatista-text border-b border-amatista-text pb-1">Todos</a>
+            <a href="#" class="hover:text-amatista-text transition-colors">Espejos</a>
+            <a href="#" class="hover:text-amatista-text transition-colors">Decoración</a>
+        </div>
+    </header>
+
+    <section class="pb-32 px-4 md:px-8 max-w-screen-2xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-20">
+            
+            <div class="group cursor-pointer fade-in-section is-visible">
+                <div class="h-[80vh] w-full img-hover-zoom mb-6 bg-gray-100">
+                    <img src="https://images.unsplash.com/photo-1615529182904-14819c35db37?q=80&w=2000&auto=format&fit=crop" alt="Espejo Orgánico" class="w-full h-full object-cover">
+                </div>
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3 class="font-serif text-2xl text-amatista-text mb-1">Espejo Asimétrico "Luz"</h3>
+                        <p class="font-sans text-xs text-gray-500 font-light">Marco de roble entintado a mano</p>
+                    </div>
+                    <span class="font-sans text-sm text-amatista-text tracking-wider">$12,500 MXN</span>
+                </div>
+            </div>
+
+            <div class="group cursor-pointer fade-in-section is-visible">
+                <div class="h-[80vh] w-full img-hover-zoom mb-6 bg-gray-100">
+                    <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=2000&auto=format&fit=crop" alt="Jarrón Escultural" class="w-full h-full object-cover">
+                </div>
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3 class="font-serif text-2xl text-amatista-text mb-1">Jarrón Escultural "Tierra"</h3>
+                        <p class="font-sans text-xs text-gray-500 font-light">Cerámica texturizada</p>
+                    </div>
+                    <span class="font-sans text-sm text-amatista-text tracking-wider">$3,200 MXN</span>
+                </div>
+            </div>
+
+            </div>
+    </section>
+</body>
+</html>
