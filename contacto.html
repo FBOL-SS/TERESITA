@@ -4,75 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto | Amatista Studio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: { colors: { 'amatista-bg': '#F9F8F4', 'amatista-text': '#2A2A2A', 'amatista-accent': '#B4A2A5' }, fontFamily: { 'serif': ['"Cormorant Garamond"', 'serif'], 'sans': ['"Montserrat"', 'sans-serif'] } } } }
+    </script>
     <style>
-        /* Estilos específicos para inputs de lujo */
-        .luxury-input {
-            width: 100%;
-            background: transparent;
-            border: none;
-            border-bottom: 1px solid #D1D5DB;
-            padding: 12px 0;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 300;
-            font-size: 0.875rem;
-            color: #2A2A2A;
-            transition: border-color 0.3s ease;
-        }
-        .luxury-input:focus {
-            outline: none;
-            border-bottom-color: #B4A2A5; /* Amatista accent */
-        }
+        body { background-color: #F9F8F4; color: #2A2A2A; overflow-x: hidden; }
+        .fade-in-section { opacity: 0; transform: translateY(30px); transition: all 1.2s ease-out; }
+        .fade-in-section.is-visible { opacity: 1; transform: none; }
     </style>
 </head>
-<body class="font-sans antialiased bg-amatista-bg text-amatista-text min-h-screen flex flex-col">
+<body class="font-sans antialiased pt-24 min-h-screen flex flex-col">
 
-    <section class="flex-grow py-24 px-6 md:px-12 max-w-7xl mx-auto w-full fade-in-section is-visible">
-        <div class="grid md:grid-cols-2 gap-20">
+    <nav class="fixed top-0 w-full z-[100] bg-amatista-bg py-4 px-8 flex justify-between items-center shadow-sm" id="navbar">
+        <div class="hidden md:flex space-x-8 text-xs tracking-widest uppercase text-amatista-text font-light">
+            <a href="index.html" class="hover:opacity-60 transition-opacity">Inicio</a>
+            <a href="shop.html" class="hover:opacity-60 transition-opacity">Shop</a>
+        </div>
+        <div class="text-center">
+            <a href="index.html"><h1 class="font-serif text-3xl md:text-4xl tracking-widest text-amatista-text">AMATISTA</h1></a>
+        </div>
+        <div class="hidden md:flex space-x-8 text-xs tracking-widest uppercase text-amatista-text font-light">
+            <a href="nosotros.html" class="hover:opacity-60 transition-opacity">Nosotros</a>
+            <a href="contacto.html" class="text-amatista-accent">Contacto</a>
+        </div>
+        <button class="md:hidden text-amatista-text z-[110]" id="menu-toggle" aria-label="Abrir menú">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-width="1.5" d="M4 8h16M4 16h16"></path></svg>
+        </button>
+    </nav>
+
+    <div id="mobile-menu" class="fixed inset-0 bg-amatista-bg z-[105] flex flex-col items-center justify-center space-y-8 opacity-0 pointer-events-none transition-all duration-500">
+        <a href="index.html" class="font-serif text-4xl text-amatista-text">Inicio</a>
+        <a href="shop.html" class="font-serif text-4xl text-amatista-text">Shop</a>
+        <a href="nosotros.html" class="font-serif text-4xl text-amatista-text">Nosotros</a>
+        <a href="contacto.html" class="font-serif text-4xl text-amatista-text">Contacto</a>
+    </div>
+
+    <section class="flex-grow py-16 px-6 max-w-7xl mx-auto w-full">
+        <div class="grid md:grid-cols-2 gap-16">
             
-            <div>
-                <h1 class="font-serif text-5xl md:text-6xl mb-8">Hablemos</h1>
-                <p class="font-sans font-light text-gray-500 leading-relaxed mb-12 max-w-md">
-                    Para consultas sobre disponibilidad, piezas personalizadas o colaboraciones de interiorismo, no dudes en escribirnos.
+            <div class="fade-in-section is-visible">
+                <h2 class="font-serif text-5xl mb-8 text-amatista-text">Contacto</h2>
+                <p class="font-sans font-light text-gray-500 mb-12 leading-relaxed max-w-md">
+                    Estamos ubicados en Torreón, Coahuila. Visítanos o agenda una cita para recibir asesoramiento personalizado.
                 </p>
                 
-                <div class="space-y-8">
-                    <div>
-                        <h4 class="font-sans text-xs tracking-widest uppercase text-amatista-text mb-2 font-medium">WhatsApp Studio</h4>
-                        <a href="#" class="font-serif text-2xl text-gray-500 hover:text-amatista-accent transition-colors">+52 871 XXX XXXX</a>
-                    </div>
-                    <div>
-                        <h4 class="font-sans text-xs tracking-widest uppercase text-amatista-text mb-2 font-medium">Email</h4>
-                        <a href="mailto:hola@amatistastudio.com" class="font-serif text-2xl text-gray-500 hover:text-amatista-accent transition-colors">hola@amatistastudio.com</a>
-                    </div>
-                    <div>
-                        <h4 class="font-sans text-xs tracking-widest uppercase text-amatista-text mb-2 font-medium">Ubicación</h4>
-                        <p class="font-serif text-xl text-gray-500">Torreón, Coahuila, México</p>
-                    </div>
+                <div class="space-y-12">
+                    <a href="https://wa.me/528711702727?text=Hola,%20me%20gustaría%20solicitar%20información%20sobre%20una%20pieza%20de%20Amatista%20Studio" 
+                       target="_blank" 
+                       class="inline-flex items-center space-x-4 group">
+                        <div class="p-4 border border-amatista-accent group-hover:bg-amatista-accent transition-colors">
+                            <svg class="w-6 h-6 text-amatista-accent group-hover:text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.888 11.888-11.888 3.176 0 6.161 1.237 8.404 3.48s3.481 5.229 3.481 8.406c0 6.556-5.333 11.888-11.889 11.888-2.013 0-3.991-.512-5.744-1.487l-6.139 1.613zm5.866-3.409l.421.25c1.455.86 3.136 1.314 4.862 1.314 5.232 0 9.491-4.258 9.491-9.492 0-2.535-.987-4.918-2.778-6.708s-4.173-2.779-6.709-2.779c-5.232 0-9.491 4.259-9.491 9.493 0 1.954.598 3.86 1.729 5.474l.279.404-1.033 3.772 3.873-1.018zm11.332-6.522c-.29-.145-1.714-.846-1.98-.943-.265-.096-.458-.145-.651.145-.193.29-.747.943-.915 1.137-.169.193-.338.217-.627.072-.29-.145-1.226-.452-2.335-1.442-.863-.77-1.445-1.72-1.614-2.011-.169-.29-.018-.447.127-.591.13-.13.29-.338.434-.507.145-.169.193-.289.289-.482.096-.193.048-.362-.024-.507-.072-.145-.651-1.568-.891-2.146-.233-.56-.471-.482-.651-.492l-.553-.01c-.193 0-.507.072-.771.362s-1.012.989-1.012 2.412c0 1.423 1.037 2.798 1.182 2.99.145.193 2.041 3.116 4.945 4.373.691.299 1.231.478 1.652.611.693.22 1.324.19 1.822.115.555-.083 1.714-.7 1.956-1.374.241-.675.241-1.253.169-1.374-.073-.12-.266-.194-.555-.339z"/></svg>
+                        </div>
+                        <div>
+                            <span class="block text-xs uppercase tracking-widest text-gray-400">Atención Personalizada</span>
+                            <span class="text-lg font-serif text-amatista-text">WhatsApp Studio</span>
+                        </div>
+                    </a>
                 </div>
             </div>
 
-            <div class="bg-white p-10 shadow-sm">
-                <form class="space-y-8">
-                    <div>
-                        <input type="text" placeholder="Nombre completo" class="luxury-input" required>
-                    </div>
-                    <div>
-                        <input type="email" placeholder="Correo electrónico" class="luxury-input" required>
-                    </div>
-                    <div>
-                        <input type="text" placeholder="Asunto (Ej. Pieza personalizada)" class="luxury-input">
-                    </div>
-                    <div>
-                        <textarea placeholder="Mensaje" rows="4" class="luxury-input resize-none" required></textarea>
-                    </div>
-                    <button type="submit" class="w-full bg-amatista-text text-white py-4 text-xs tracking-widest uppercase hover:bg-amatista-accent transition-colors duration-500">
-                        Enviar Mensaje
-                    </button>
-                </form>
-            </div>
-            
-        </div>
-    </section>
-
-</body>
-</html>
+            <div class="h-[400px] bg-gray-100 fade-in-section is-visible shadow-sm">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115132.86016843439!2d-103.504288!3d25.539158!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x868fdbb8d6d67e33%3A0xc391b15822365bd3!2sTorre%C3%B3n%2C%20Coah.!5e0!3m2!1sen!2smx!4v1700000000000!5m2!1sen!2smx" 
+                    class="w-full h-full grayscale opacity-80 hover:grayscale-0 hover:opacity-10

@@ -7,36 +7,41 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = {
-            theme: { extend: { colors: { 'amatista-bg': '#F9F8F4', 'amatista-text': '#2A2A2A', 'amatista-accent': '#B4A2A5' }, fontFamily: { 'serif': ['"Cormorant Garamond"', 'serif'], 'sans': ['"Montserrat"', 'sans-serif'] } } }
-        }
+        tailwind.config = { theme: { extend: { colors: { 'amatista-bg': '#F9F8F4', 'amatista-text': '#2A2A2A', 'amatista-accent': '#B4A2A5' }, fontFamily: { 'serif': ['"Cormorant Garamond"', 'serif'], 'sans': ['"Montserrat"', 'sans-serif'] } } } }
     </script>
     <style>
         body { background-color: #F9F8F4; color: #2A2A2A; overflow-x: hidden; }
         .fade-in-section { opacity: 0; transform: translateY(30px); transition: all 1.2s ease-out; }
         .fade-in-section.is-visible { opacity: 1; transform: none; }
-        .img-hover-zoom { overflow: hidden; }
-        .img-hover-zoom img { transition: transform 1.5s ease; }
-        .img-hover-zoom:hover img { transform: scale(1.03); }
     </style>
 </head>
-<body class="font-sans antialiased selection:bg-amatista-accent selection:text-white">
+<body class="font-sans antialiased selection:bg-amatista-accent selection:text-white pt-24">
 
-    <nav class="w-full z-50 bg-amatista-bg py-6 px-8 flex justify-between items-center border-b border-gray-200">
+    <nav class="fixed top-0 w-full z-[100] bg-amatista-bg py-4 px-8 flex justify-between items-center shadow-sm" id="navbar">
         <div class="hidden md:flex space-x-8 text-xs tracking-widest uppercase text-amatista-text font-light">
-            <a href="index.html" class="hover:text-amatista-accent transition-colors">Inicio</a>
+            <a href="index.html" class="hover:opacity-60 transition-opacity">Inicio</a>
             <a href="shop.html" class="text-amatista-accent">Shop</a>
         </div>
-        <div class="text-center flex-grow md:flex-grow-0">
-            <h1 class="font-serif text-3xl md:text-4xl tracking-widest text-amatista-text">AMATISTA</h1>
+        <div class="text-center">
+            <a href="index.html"><h1 class="font-serif text-3xl md:text-4xl tracking-widest text-amatista-text">AMATISTA</h1></a>
         </div>
         <div class="hidden md:flex space-x-8 text-xs tracking-widest uppercase text-amatista-text font-light">
-            <a href="nosotros.html" class="hover:text-amatista-accent transition-colors">Nosotros</a>
-            <a href="contacto.html" class="hover:text-amatista-accent transition-colors">Contacto</a>
+            <a href="nosotros.html" class="hover:opacity-60 transition-opacity">Nosotros</a>
+            <a href="contacto.html" class="hover:opacity-60 transition-opacity">Contacto</a>
         </div>
+        <button class="md:hidden text-amatista-text z-[110]" id="menu-toggle" aria-label="Abrir menú">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-width="1.5" d="M4 8h16M4 16h16"></path></svg>
+        </button>
     </nav>
 
-    <header class="py-24 px-6 text-center fade-in-section is-visible">
+    <div id="mobile-menu" class="fixed inset-0 bg-amatista-bg z-[105] flex flex-col items-center justify-center space-y-8 opacity-0 pointer-events-none transition-all duration-500">
+        <a href="index.html" class="font-serif text-4xl text-amatista-text">Inicio</a>
+        <a href="shop.html" class="font-serif text-4xl text-amatista-text">Shop</a>
+        <a href="nosotros.html" class="font-serif text-4xl text-amatista-text">Nosotros</a>
+        <a href="contacto.html" class="font-serif text-4xl text-amatista-text">Contacto</a>
+    </div>
+
+    <header class="py-16 px-6 text-center fade-in-section is-visible">
         <h1 class="font-serif text-5xl md:text-6xl text-amatista-text mb-6">Colección</h1>
         <div class="flex justify-center space-x-8 text-xs tracking-widest uppercase text-gray-400 font-light">
             <a href="#" class="text-amatista-text border-b border-amatista-text pb-1">Todos</a>
@@ -46,35 +51,70 @@
     </header>
 
     <section class="pb-32 px-4 md:px-8 max-w-screen-2xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-20">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-16">
             
             <div class="group cursor-pointer fade-in-section is-visible">
-                <div class="h-[80vh] w-full img-hover-zoom mb-6 bg-gray-100">
-                    <img src="https://images.unsplash.com/photo-1615529182904-14819c35db37?q=80&w=2000&auto=format&fit=crop" alt="Espejo Orgánico" class="w-full h-full object-cover">
+                <div class="aspect-[3/4] overflow-hidden bg-gray-100 mb-4">
+                    <img src="https://images.unsplash.com/photo-1615529182904-14819c35db37?q=80&w=1000&auto=format&fit=crop" loading="lazy" alt="Espejo Asimétrico" class="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105">
                 </div>
-                <div class="flex justify-between items-start">
-                    <div>
-                        <h3 class="font-serif text-2xl text-amatista-text mb-1">Espejo Asimétrico "Luz"</h3>
-                        <p class="font-sans text-xs text-gray-500 font-light">Marco de roble entintado a mano</p>
-                    </div>
-                    <span class="font-sans text-sm text-amatista-text tracking-wider">$12,500 MXN</span>
+                <div class="px-2">
+                    <h3 class="font-serif text-2xl text-amatista-text">Espejo Asimétrico "Luz"</h3>
+                    <p class="font-sans text-[10px] tracking-widest text-gray-400 uppercase mt-1">Espejos</p>
+                    <p class="font-sans text-sm mt-3 text-amatista-text">$12,500 MXN</p>
                 </div>
             </div>
 
             <div class="group cursor-pointer fade-in-section is-visible">
-                <div class="h-[80vh] w-full img-hover-zoom mb-6 bg-gray-100">
-                    <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=2000&auto=format&fit=crop" alt="Jarrón Escultural" class="w-full h-full object-cover">
+                <div class="aspect-[3/4] overflow-hidden bg-gray-100 mb-4">
+                    <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1000&auto=format&fit=crop" loading="lazy" alt="Jarrón Tierra" class="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105">
                 </div>
-                <div class="flex justify-between items-start">
-                    <div>
-                        <h3 class="font-serif text-2xl text-amatista-text mb-1">Jarrón Escultural "Tierra"</h3>
-                        <p class="font-sans text-xs text-gray-500 font-light">Cerámica texturizada</p>
-                    </div>
-                    <span class="font-sans text-sm text-amatista-text tracking-wider">$3,200 MXN</span>
+                <div class="px-2">
+                    <h3 class="font-serif text-2xl text-amatista-text">Jarrón Escultural "Tierra"</h3>
+                    <p class="font-sans text-[10px] tracking-widest text-gray-400 uppercase mt-1">Decoración</p>
+                    <p class="font-sans text-sm mt-3 text-amatista-text">$3,200 MXN</p>
+                </div>
+            </div>
+
+            <div class="group cursor-pointer fade-in-section is-visible">
+                <div class="aspect-[3/4] overflow-hidden bg-gray-100 mb-4">
+                    <img src="https://images.unsplash.com/photo-1544457070-4cd773b4d71e?q=80&w=1000&auto=format&fit=crop" loading="lazy" alt="Objeto Decorativo" class="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105">
+                </div>
+                <div class="px-2">
+                    <h3 class="font-serif text-2xl text-amatista-text">Pieza de Acento "Onda"</h3>
+                    <p class="font-sans text-[10px] tracking-widest text-gray-400 uppercase mt-1">Piezas Especiales</p>
+                    <p class="font-sans text-sm mt-3 text-amatista-text">$5,800 MXN</p>
                 </div>
             </div>
 
             </div>
     </section>
+
+    <footer class="bg-amatista-bg pt-12 pb-12 px-8 border-t border-gray-200 text-center">
+        <p class="font-sans text-xs text-gray-400 font-light">&copy; 2026 Amatista Studio. Torreón, Coahuila.</p>
+    </footer>
+
+    <script>
+        // Lógica Menú Móvil
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuToggle.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.contains('opacity-100');
+            if (isOpen) {
+                mobileMenu.classList.replace('opacity-100', 'opacity-0');
+                mobileMenu.classList.add('pointer-events-none');
+                document.body.style.overflow = 'auto';
+            } else {
+                mobileMenu.classList.replace('opacity-0', 'opacity-100');
+                mobileMenu.classList.remove('pointer-events-none');
+                document.body.style.overflow = 'hidden';
+            }
+        });
+
+        // Animaciones Fade-In
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); obs.unobserve(entry.target); } });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in-section').forEach(section => observer.observe(section));
+    </script>
 </body>
 </html>
