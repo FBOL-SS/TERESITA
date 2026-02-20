@@ -1,203 +1,265 @@
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amatista Studio | Piezas artísticas para espacios extraordinarios</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'amatista-bg': '#F9F8F4',
-                        'amatista-text': '#2A2A2A',
-                        'amatista-accent': '#B4A2A5',
-                        'amatista-gold': '#D4C5B9',
-                    },
-                    fontFamily: {
-                        'serif': ['"Cormorant Garamond"', 'serif'],
-                        'sans': ['"Montserrat"', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amatista Studio | Piezas artísticas para espacios extraordinarios</title>
 
-    <style>
-        body { background-color: #F9F8F4; color: #2A2A2A; overflow-x: hidden; }
-        .fade-in-section { opacity: 0; transform: translateY(30px); transition: all 1.2s ease-out; }
-        .fade-in-section.is-visible { opacity: 1; transform: none; }
-        .hero-bg { background-image: url('https://images.unsplash.com/photo-1618220179428-22790b46a0eb?q=80&w=2574&auto=format&fit=crop'); background-size: cover; background-position: center; background-attachment: fixed; }
-        .img-hover-zoom { overflow: hidden; }
-        .img-hover-zoom img { transition: transform 1.5s ease; }
-        .img-hover-zoom:hover img { transform: scale(1.03); }
-    </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'amatista-bg': '#F9F8F4',
+            'amatista-text': '#2A2A2A',
+            // Bajé un poco lo “rosa” para que se sienta más EU interior brand
+            'amatista-accent': '#A9989C',
+            'amatista-gold': '#D4C5B9',
+          },
+          fontFamily: {
+            'serif': ['"Cormorant Garamond"', 'serif'],
+            'sans': ['"Montserrat"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body { background-color: #F9F8F4; color: #2A2A2A; overflow-x: hidden; }
+    .fade-in-section { opacity: 0; transform: translateY(26px); transition: all 1.1s ease-out; }
+    .fade-in-section.is-visible { opacity: 1; transform: none; }
+
+    .img-hover-zoom { overflow: hidden; }
+    .img-hover-zoom img { transition: transform 1.5s ease; }
+    .img-hover-zoom:hover img { transform: scale(1.03); }
+
+    /* Hero “campaign”: grano + viñeta ligera (se siente editorial, no DIY) */
+    .hero-film::before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        radial-gradient(80% 60% at 50% 45%, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.65) 70%, rgba(0,0,0,0.78) 100%),
+        linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.72));
+      pointer-events:none;
+    }
+    .hero-film::after{
+      content:"";
+      position:absolute; inset:0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E");
+      mix-blend-mode: soft-light;
+      opacity: .18;
+      pointer-events:none;
+    }
+
+    /* Soporte iOS: evitar “fixed attachment”/glitches */
+    video { transform: translateZ(0); }
+  </style>
 </head>
+
 <body class="font-sans antialiased selection:bg-amatista-accent selection:text-white">
 
-    <nav class="fixed w-full z-[100] transition-all duration-500 bg-transparent py-6 px-8 flex justify-between items-center" id="navbar">
-        <div class="hidden md:flex space-x-8 text-xs tracking-widest uppercase text-white font-light nav-link-text">
-            <a href="index.html" class="hover:opacity-60 transition-opacity">Inicio</a>
-            <a href="shop.html" class="hover:opacity-60 transition-opacity">Shop</a>
-        </div>
-        
-        <div class="text-center">
-            <a href="index.html">
-                <h1 class="font-serif text-3xl md:text-4xl tracking-widest text-white transition-colors duration-500" id="logo">AMATISTA</h1>
-            </a>
-        </div>
-
-        <div class="hidden md:flex space-x-8 text-xs tracking-widest uppercase text-white font-light nav-link-text">
-            <a href="nosotros.html" class="hover:opacity-60 transition-opacity">Nosotros</a>
-            <a href="contacto.html" class="hover:opacity-60 transition-opacity">Contacto</a>
-        </div>
-        
-        <button class="md:hidden text-white z-[110]" id="menu-toggle" aria-label="Abrir menú">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="square" stroke-width="1.5" d="M4 8h16M4 16h16"></path>
-            </svg>
-        </button>
-    </nav>
-
-    <div id="mobile-menu" class="fixed inset-0 bg-amatista-bg z-[105] flex flex-col items-center justify-center space-y-8 opacity-0 pointer-events-none transition-all duration-500">
-        <a href="index.html" class="font-serif text-4xl text-amatista-text">Inicio</a>
-        <a href="shop.html" class="font-serif text-4xl text-amatista-text">Shop</a>
-        <a href="nosotros.html" class="font-serif text-4xl text-amatista-text">Nosotros</a>
-        <a href="contacto.html" class="font-serif text-4xl text-amatista-text">Contacto</a>
-        <div class="pt-8">
-            <a href="https://wa.me/528711702727" class="text-xs tracking-[0.3em] uppercase text-amatista-accent">WhatsApp</a>
-        </div>
+  <!-- NAV -->
+  <nav class="fixed w-full z-[100] transition-all duration-500 bg-transparent py-6 px-8 flex justify-between items-center" id="navbar">
+    <div class="hidden md:flex space-x-8 text-xs tracking-widest uppercase text-white font-light nav-link-text">
+      <a href="index.html" class="hover:opacity-60 transition-opacity">Inicio</a>
+      <a href="shop.html" class="hover:opacity-60 transition-opacity">Shop</a>
     </div>
 
-    <header class="relative h-screen flex items-center justify-center hero-bg">
-        <div class="absolute inset-0 bg-black bg-opacity-30"></div>
-        <div class="relative z-10 text-center px-4 flex flex-col items-center mt-20 fade-in-section is-visible">
-            <p class="font-serif italic text-amatista-accent text-xl md:text-2xl mb-4">Studio</p>
-            <h2 class="font-sans text-xs md:text-sm tracking-[0.3em] uppercase text-white mb-10 font-light max-w-lg leading-relaxed">
-                Piezas artísticas para espacios extraordinarios
-            </h2>
-            <a href="shop.html" class="inline-block border border-white text-white px-10 py-4 text-xs tracking-widest uppercase hover:bg-white hover:text-amatista-text transition-colors duration-500">
-                Explorar Colección
-            </a>
+    <div class="text-center">
+      <a href="index.html">
+        <h1 class="font-serif text-3xl md:text-4xl tracking-[0.25em] text-white transition-colors duration-500" id="logo">AMATISTA</h1>
+      </a>
+    </div>
+
+    <div class="hidden md:flex space-x-8 text-xs tracking-widest uppercase text-white font-light nav-link-text">
+      <a href="nosotros.html" class="hover:opacity-60 transition-opacity">Nosotros</a>
+      <a href="contacto.html" class="hover:opacity-60 transition-opacity">Contacto</a>
+    </div>
+
+    <button class="md:hidden text-white z-[110]" id="menu-toggle" aria-label="Abrir menú">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="square" stroke-width="1.5" d="M4 8h16M4 16h16"></path>
+      </svg>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div id="mobile-menu" class="fixed inset-0 bg-amatista-bg z-[105] flex flex-col items-center justify-center space-y-8 opacity-0 pointer-events-none transition-all duration-500">
+    <a href="index.html" class="font-serif text-4xl text-amatista-text">Inicio</a>
+    <a href="shop.html" class="font-serif text-4xl text-amatista-text">Shop</a>
+    <a href="nosotros.html" class="font-serif text-4xl text-amatista-text">Nosotros</a>
+    <a href="contacto.html" class="font-serif text-4xl text-amatista-text">Contacto</a>
+    <div class="pt-8">
+      <a href="https://wa.me/528711702727" class="text-xs tracking-[0.3em] uppercase text-amatista-accent">WhatsApp</a>
+    </div>
+  </div>
+
+  <!-- HERO (EU interior brand) -->
+  <header class="relative h-screen flex items-center justify-center overflow-hidden hero-film">
+
+    <!-- VIDEO BG -->
+    <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover">
+      <source src="videos/resina.mp4" type="video/mp4">
+    </video>
+
+    <!-- Contenido -->
+    <div class="relative z-10 text-center px-6 flex flex-col items-center mt-24 fade-in-section is-visible">
+
+      <!-- micro label editorial -->
+      <div class="mb-6">
+        <span class="inline-block text-[10px] md:text-[11px] tracking-[0.45em] uppercase text-white/80 font-light">
+          AMATISTA STUDIO · TORREÓN
+        </span>
+      </div>
+
+      <p class="font-serif italic text-amatista-accent text-xl md:text-2xl mb-4">Studio</p>
+
+      <h2 class="font-sans text-[11px] md:text-sm tracking-[0.4em] uppercase text-white mb-10 font-light max-w-xl leading-relaxed">
+        Piezas artísticas para espacios extraordinarios
+      </h2>
+
+      <div class="flex items-center gap-4">
+        <a href="shop.html"
+           class="inline-flex items-center justify-center border border-white/80 text-white px-12 py-5 text-[11px] tracking-[0.35em] uppercase hover:bg-white hover:text-black transition-all duration-500 backdrop-blur-sm">
+          Explorar Colección
+        </a>
+
+        <!-- CTA secundario “europeo”: discreto -->
+        <a href="nosotros.html"
+           class="hidden sm:inline-flex items-center justify-center text-white/80 hover:text-white text-[11px] tracking-[0.35em] uppercase transition-opacity duration-300 border-b border-white/40 hover:border-white/80 pb-1">
+          Conocer el Estudio
+        </a>
+      </div>
+
+      <!-- scroll hint -->
+      <div class="mt-12 text-white/60 text-[10px] tracking-[0.35em] uppercase">
+        Scroll
+      </div>
+    </div>
+  </header>
+
+  <!-- FRASE -->
+  <section class="py-32 px-6 bg-amatista-bg text-center fade-in-section">
+    <div class="max-w-3xl mx-auto">
+      <p class="font-serif text-3xl md:text-5xl leading-tight text-amatista-text font-light mb-8">
+        "Creemos en la belleza de la pausa. Cada objeto es una invitación a habitar el presente con elegancia."
+      </p>
+      <p class="font-sans text-sm md:text-base font-light text-gray-500 leading-relaxed max-w-xl mx-auto">
+        Diseñamos y curamos piezas que trascienden la decoración. Espejos esculturales y objetos de acento creados para aportar luz, calma y una energía femenina inconfundible a tus espacios.
+      </p>
+    </div>
+  </section>
+
+  <!-- CATEGORÍAS -->
+  <section class="py-16 px-4 md:px-8 bg-amatista-bg">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 max-w-screen-2xl mx-auto">
+      <div class="group relative h-[70vh] img-hover-zoom cursor-pointer fade-in-section">
+        <img src="https://images.unsplash.com/photo-1615529182904-14819c35db37?q=80&w=2000&auto=format&fit=crop" alt="Espejos" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black/25 transition-opacity duration-500 group-hover:bg-black/35"></div>
+        <div class="absolute bottom-10 left-10">
+          <h3 class="font-serif text-3xl text-white mb-2">Espejos</h3>
+          <a href="shop.html" class="font-sans text-xs tracking-widest text-white uppercase inline-block border-b border-white/80 pb-1 hover:border-white transition-colors">Ver colección</a>
         </div>
-    </header>
+      </div>
 
-    <section class="py-32 px-6 bg-amatista-bg text-center fade-in-section">
-        <div class="max-w-3xl mx-auto">
-            <p class="font-serif text-3xl md:text-5xl leading-tight text-amatista-text font-light mb-8">
-                "Creemos en la belleza de la pausa. Cada objeto es una invitación a habitar el presente con elegancia."
-            </p>
-            <p class="font-sans text-sm md:text-base font-light text-gray-500 leading-relaxed max-w-xl mx-auto">
-                Diseñamos y curamos piezas que trascienden la decoración. Espejos esculturales y objetos de acento creados para aportar luz, calma y una energía femenina inconfundible a tus espacios.
-            </p>
+      <div class="group relative h-[70vh] img-hover-zoom cursor-pointer fade-in-section" style="transition-delay: 0.12s;">
+        <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=2000&auto=format&fit=crop" alt="Decoración" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black/25 transition-opacity duration-500 group-hover:bg-black/35"></div>
+        <div class="absolute bottom-10 left-10">
+          <h3 class="font-serif text-3xl text-white mb-2">Decoración</h3>
+          <a href="shop.html" class="font-sans text-xs tracking-widest text-white uppercase inline-block border-b border-white/80 pb-1 hover:border-white transition-colors">Ver objetos</a>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section class="py-16 px-4 md:px-8 bg-amatista-bg">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 max-w-screen-2xl mx-auto">
-            <div class="group relative h-[70vh] img-hover-zoom cursor-pointer fade-in-section">
-                <img src="https://images.unsplash.com/photo-1615529182904-14819c35db37?q=80&w=2000&auto=format&fit=crop" alt="Espejos" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-black bg-opacity-20 transition-opacity duration-500 group-hover:bg-opacity-30"></div>
-                <div class="absolute bottom-10 left-10">
-                    <h3 class="font-serif text-3xl text-white mb-2">Espejos</h3>
-                    <a href="shop.html" class="font-sans text-xs tracking-widest text-white uppercase inline-block border-b border-white pb-1">Ver colección</a>
-                </div>
-            </div>
-            <div class="group relative h-[70vh] img-hover-zoom cursor-pointer fade-in-section" style="transition-delay: 0.2s;">
-                <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=2000&auto=format&fit=crop" alt="Decoración" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-black bg-opacity-20 transition-opacity duration-500 group-hover:bg-opacity-30"></div>
-                <div class="absolute bottom-10 left-10">
-                    <h3 class="font-serif text-3xl text-white mb-2">Decoración</h3>
-                    <a href="shop.html" class="font-sans text-xs tracking-widest text-white uppercase inline-block border-b border-white pb-1">Ver objetos</a>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- FOOTER -->
+  <footer class="bg-amatista-bg pt-24 pb-12 px-8 border-t border-gray-200">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+      <div class="col-span-1 md:col-span-2">
+        <h2 class="font-serif text-3xl tracking-[0.25em] text-amatista-text mb-6">AMATISTA</h2>
+        <p class="font-sans text-sm font-light text-gray-500 max-w-xs leading-relaxed">
+          Estudio de diseño enfocado en piezas artísticas de alto impacto y espejos esculturales.
+        </p>
+      </div>
 
-    <footer class="bg-amatista-bg pt-24 pb-12 px-8 border-t border-gray-200">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-            <div class="col-span-1 md:col-span-2">
-                <h2 class="font-serif text-3xl tracking-widest text-amatista-text mb-6">AMATISTA</h2>
-                <p class="font-sans text-sm font-light text-gray-500 max-w-xs leading-relaxed">
-                    Estudio de diseño enfocado en piezas artísticas de alto impacto y espejos esculturales.
-                </p>
-            </div>
-            <div>
-                <h4 class="font-sans text-xs tracking-widest uppercase text-amatista-text mb-6 font-medium">Navegación</h4>
-                <ul class="space-y-4 font-sans text-sm font-light text-gray-500">
-                    <li><a href="shop.html" class="hover:text-amatista-accent transition-colors">Shop</a></li>
-                    <li><a href="nosotros.html" class="hover:text-amatista-accent transition-colors">Nosotros</a></li>
-                    <li><a href="contacto.html" class="hover:text-amatista-accent transition-colors">Contacto</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="font-sans text-xs tracking-widest uppercase text-amatista-text mb-6 font-medium">Contacto</h4>
-                <ul class="space-y-4 font-sans text-sm font-light text-gray-500">
-                    <li><a href="https://wa.me/528711702727" class="hover:text-amatista-accent transition-colors">WhatsApp</a></li>
-                    <li><a href="mailto:hola@amatistastudio.com" class="hover:text-amatista-accent transition-colors">hola@amatistastudio.com</a></li>
-                    <li class="pt-4 text-xs tracking-wider uppercase text-gray-400">Torreón, Coahuila, México</li>
-                </ul>
-            </div>
-        </div>
-    </footer>
+      <div>
+        <h4 class="font-sans text-xs tracking-widest uppercase text-amatista-text mb-6 font-medium">Navegación</h4>
+        <ul class="space-y-4 font-sans text-sm font-light text-gray-500">
+          <li><a href="shop.html" class="hover:text-amatista-accent transition-colors">Shop</a></li>
+          <li><a href="nosotros.html" class="hover:text-amatista-accent transition-colors">Nosotros</a></li>
+          <li><a href="contacto.html" class="hover:text-amatista-accent transition-colors">Contacto</a></li>
+        </ul>
+      </div>
 
-    <script>
-        // Lógica del Navbar Scroll (Solo para Index)
-        const navbar = document.getElementById('navbar');
-        const logo = document.getElementById('logo');
-        const navLinks = document.querySelectorAll('.nav-link-text');
-        const menuToggleBtn = document.getElementById('menu-toggle');
+      <div>
+        <h4 class="font-sans text-xs tracking-widest uppercase text-amatista-text mb-6 font-medium">Contacto</h4>
+        <ul class="space-y-4 font-sans text-sm font-light text-gray-500">
+          <li><a href="https://wa.me/528711702727" class="hover:text-amatista-accent transition-colors">WhatsApp</a></li>
+          <li><a href="mailto:hola@amatistastudio.com" class="hover:text-amatista-accent transition-colors">hola@amatistastudio.com</a></li>
+          <li class="pt-4 text-xs tracking-wider uppercase text-gray-400">Torreón, Coahuila, México</li>
+        </ul>
+      </div>
+    </div>
+  </footer>
 
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('bg-amatista-bg', 'py-4', 'shadow-sm');
-                navbar.classList.remove('bg-transparent', 'py-6');
-                logo.classList.replace('text-white', 'text-amatista-text');
-                navLinks.forEach(el => el.classList.replace('text-white', 'text-amatista-text'));
-                menuToggleBtn.classList.replace('text-white', 'text-amatista-text');
-            } else {
-                navbar.classList.remove('bg-amatista-bg', 'shadow-sm', 'py-4');
-                navbar.classList.add('bg-transparent', 'py-6');
-                logo.classList.replace('text-amatista-text', 'text-white');
-                navLinks.forEach(el => el.classList.replace('text-amatista-text', 'text-white'));
-                menuToggleBtn.classList.replace('text-amatista-text', 'text-white');
-            }
-        });
+  <script>
+    // Navbar Scroll (Index)
+    const navbar = document.getElementById('navbar');
+    const logo = document.getElementById('logo');
+    const navLinks = document.querySelectorAll('.nav-link-text');
+    const menuToggleBtn = document.getElementById('menu-toggle');
 
-        // Lógica Menú Móvil
-        const menuToggle = document.getElementById('menu-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('bg-amatista-bg', 'py-4', 'shadow-sm');
+        navbar.classList.remove('bg-transparent', 'py-6');
+        logo.classList.replace('text-white', 'text-amatista-text');
+        navLinks.forEach(el => el.classList.replace('text-white', 'text-amatista-text'));
+        menuToggleBtn.classList.replace('text-white', 'text-amatista-text');
+      } else {
+        navbar.classList.remove('bg-amatista-bg', 'shadow-sm', 'py-4');
+        navbar.classList.add('bg-transparent', 'py-6');
+        logo.classList.replace('text-amatista-text', 'text-white');
+        navLinks.forEach(el => el.classList.replace('text-amatista-text', 'text-white'));
+        menuToggleBtn.classList.replace('text-amatista-text', 'text-white');
+      }
+    });
 
-        menuToggle.addEventListener('click', () => {
-            const isOpen = mobileMenu.classList.contains('opacity-100');
-            if (isOpen) {
-                mobileMenu.classList.replace('opacity-100', 'opacity-0');
-                mobileMenu.classList.add('pointer-events-none');
-                document.body.style.overflow = 'auto';
-            } else {
-                mobileMenu.classList.replace('opacity-0', 'opacity-100');
-                mobileMenu.classList.remove('pointer-events-none');
-                document.body.style.overflow = 'hidden';
-            }
-        });
+    // Menú móvil
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
 
-        // Animaciones Fade-In
-        const observer = new IntersectionObserver((entries, obs) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    obs.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
+    menuToggle.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.contains('opacity-100');
+      if (isOpen) {
+        mobileMenu.classList.replace('opacity-100', 'opacity-0');
+        mobileMenu.classList.add('pointer-events-none');
+        document.body.style.overflow = 'auto';
+      } else {
+        mobileMenu.classList.replace('opacity-0', 'opacity-100');
+        mobileMenu.classList.remove('pointer-events-none');
+        document.body.style.overflow = 'hidden';
+      }
+    });
 
-        document.querySelectorAll('.fade-in-section').forEach(section => observer.observe(section));
-    </script>
+    // Fade-in
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in-section').forEach(section => observer.observe(section));
+  </script>
 </body>
 </html>

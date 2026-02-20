@@ -4,36 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nosotros | Amatista Studio</title>
+
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+
     <script>
-        tailwind.config = { theme: { extend: { colors: { 'amatista-bg': '#F9F8F4', 'amatista-text': '#2A2A2A', 'amatista-accent': '#B4A2A5' }, fontFamily: { 'serif': ['"Cormorant Garamond"', 'serif'], 'sans': ['"Montserrat"', 'sans-serif'] } } } }
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'amatista-bg': '#F9F8F4',
+                        'amatista-text': '#2A2A2A',
+                        'amatista-accent': '#A9989C'
+                    },
+                    fontFamily: {
+                        'serif': ['"Cormorant Garamond"', 'serif'],
+                        'sans': ['"Montserrat"', 'sans-serif']
+                    }
+                }
+            }
+        }
     </script>
+
     <style>
         body { background-color: #F9F8F4; color: #2A2A2A; overflow-x: hidden; }
-        .fade-in-section { opacity: 0; transform: translateY(30px); transition: all 1.2s ease-out; }
+        .fade-in-section { opacity: 0; transform: translateY(26px); transition: all 1.1s ease-out; }
         .fade-in-section.is-visible { opacity: 1; transform: none; }
     </style>
 </head>
+
 <body class="font-sans antialiased pt-24">
 
+    <!-- NAV -->
     <nav class="fixed top-0 w-full z-[100] bg-amatista-bg py-4 px-8 flex justify-between items-center shadow-sm" id="navbar">
         <div class="hidden md:flex space-x-8 text-xs tracking-widest uppercase text-amatista-text font-light">
             <a href="index.html" class="hover:opacity-60 transition-opacity">Inicio</a>
             <a href="shop.html" class="hover:opacity-60 transition-opacity">Shop</a>
         </div>
+
         <div class="text-center">
-            <a href="index.html"><h1 class="font-serif text-3xl md:text-4xl tracking-widest text-amatista-text">AMATISTA</h1></a>
+            <a href="index.html">
+                <h1 class="font-serif text-3xl md:text-4xl tracking-[0.25em] text-amatista-text">AMATISTA</h1>
+            </a>
         </div>
+
         <div class="hidden md:flex space-x-8 text-xs tracking-widest uppercase text-amatista-text font-light">
             <a href="nosotros.html" class="text-amatista-accent">Nosotros</a>
             <a href="contacto.html" class="hover:opacity-60 transition-opacity">Contacto</a>
         </div>
+
         <button class="md:hidden text-amatista-text z-[110]" id="menu-toggle" aria-label="Abrir menú">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-width="1.5" d="M4 8h16M4 16h16"></path></svg>
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="square" stroke-width="1.5" d="M4 8h16M4 16h16"></path>
+            </svg>
         </button>
     </nav>
 
+    <!-- MOBILE MENU -->
     <div id="mobile-menu" class="fixed inset-0 bg-amatista-bg z-[105] flex flex-col items-center justify-center space-y-8 opacity-0 pointer-events-none transition-all duration-500">
         <a href="index.html" class="font-serif text-4xl text-amatista-text">Inicio</a>
         <a href="shop.html" class="font-serif text-4xl text-amatista-text">Shop</a>
@@ -41,35 +68,56 @@
         <a href="contacto.html" class="font-serif text-4xl text-amatista-text">Contacto</a>
     </div>
 
+    <!-- CONTENT -->
     <section class="py-16 px-6 md:px-12 max-w-7xl mx-auto fade-in-section is-visible">
+        <!-- micro label editorial -->
+        <div class="text-center mb-6">
+            <span class="inline-block text-[10px] tracking-[0.45em] uppercase text-gray-400 font-light">
+                AMATISTA STUDIO · TORREÓN
+            </span>
+        </div>
+
         <h1 class="font-serif text-5xl md:text-7xl text-center mb-16 text-amatista-text">El arte de habitar</h1>
+
         <div class="w-full h-[60vh] overflow-hidden mb-24">
-            <img src="https://images.unsplash.com/photo-1618220179428-22790b46a0eb?q=80&w=2574&auto=format&fit=crop" alt="Estudio Amatista" class="w-full h-full object-cover">
+            <img src="https://images.unsplash.com/photo-1618220179428-22790b46a0eb?q=80&w=2574&auto=format&fit=crop"
+                 alt="Estudio Amatista"
+                 class="w-full h-full object-cover">
         </div>
 
         <div class="flex flex-col md:flex-row items-center gap-16 mb-32 fade-in-section">
             <div class="w-full md:w-1/2">
-                <span class="font-sans text-xs tracking-[0.2em] text-amatista-accent uppercase mb-4 block">Nuestra Historia</span>
+                <span class="font-sans text-[10px] tracking-[0.35em] text-amatista-accent uppercase mb-4 block">
+                    Nuestra Historia
+                </span>
                 <h2 class="font-serif text-4xl mb-6 text-amatista-text">Un refugio para la estética</h2>
                 <p class="font-sans font-light text-gray-500 leading-relaxed mb-6">
                     Amatista Studio nació de la necesidad de encontrar piezas que aportaran alma a los espacios. Cansados de la decoración genérica, decidimos crear un estudio enfocado en el diseño lento y consciente.
                 </p>
             </div>
+
             <div class="w-full md:w-1/2 h-[70vh] overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1617104551722-3b2d51366400?q=80&w=2000&auto=format&fit=crop" alt="Proceso" class="w-full h-full object-cover">
+                <img src="https://images.unsplash.com/photo-1617104551722-3b2d51366400?q=80&w=2000&auto=format&fit=crop"
+                     alt="Proceso"
+                     class="w-full h-full object-cover">
             </div>
         </div>
 
         <div class="flex flex-col md:flex-row-reverse items-center gap-16 mb-16 fade-in-section">
             <div class="w-full md:w-1/2">
-                <span class="font-sans text-xs tracking-[0.2em] text-amatista-accent uppercase mb-4 block">Proceso Creativo</span>
+                <span class="font-sans text-[10px] tracking-[0.35em] text-amatista-accent uppercase mb-4 block">
+                    Proceso Creativo
+                </span>
                 <h2 class="font-serif text-4xl mb-6 text-amatista-text">Materias primas nobles</h2>
                 <p class="font-sans font-light text-gray-500 leading-relaxed mb-6">
                     Creemos que la verdadera elegancia reside en la imperfección natural de los materiales. Trabajamos con texturas orgánicas diseñadas para dialogar con la luz de tu entorno.
                 </p>
             </div>
+
             <div class="w-full md:w-1/2 h-[70vh] overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1544457070-4cd773b4d71e?q=80&w=2000&auto=format&fit=crop" alt="Materiales" class="w-full h-full object-cover">
+                <img src="https://images.unsplash.com/photo-1544457070-4cd773b4d71e?q=80&w=2000&auto=format&fit=crop"
+                     alt="Materiales"
+                     class="w-full h-full object-cover">
             </div>
         </div>
     </section>
@@ -79,14 +127,33 @@
     </footer>
 
     <script>
+        // Menú móvil
         const menuToggle = document.getElementById('menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
+
         menuToggle.addEventListener('click', () => {
             const isOpen = mobileMenu.classList.contains('opacity-100');
-            if (isOpen) { mobileMenu.classList.replace('opacity-100', 'opacity-0'); mobileMenu.classList.add('pointer-events-none'); document.body.style.overflow = 'auto'; } 
-            else { mobileMenu.classList.replace('opacity-0', 'opacity-100'); mobileMenu.classList.remove('pointer-events-none'); document.body.style.overflow = 'hidden'; }
+            if (isOpen) {
+                mobileMenu.classList.replace('opacity-100', 'opacity-0');
+                mobileMenu.classList.add('pointer-events-none');
+                document.body.style.overflow = 'auto';
+            } else {
+                mobileMenu.classList.replace('opacity-0', 'opacity-100');
+                mobileMenu.classList.remove('pointer-events-none');
+                document.body.style.overflow = 'hidden';
+            }
         });
-        const observer = new IntersectionObserver((entries, obs) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); obs.unobserve(entry.target); } }); }, { threshold: 0.1 });
+
+        // Fade-in
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
         document.querySelectorAll('.fade-in-section').forEach(section => observer.observe(section));
     </script>
 </body>
