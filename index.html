@@ -100,11 +100,22 @@
     </div>
   </div>
 
-  <!-- HERO (EU interior brand) -->
-  <header class="relative h-screen flex items-center justify-center overflow-hidden hero-film">
+  <header class="relative h-screen flex items-center justify-center overflow-hidden">
 
     <!-- VIDEO BG -->
-    <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover">
+    <video autoplay muted loop playsinline 
+    class="absolute inset-0 w-full h-full object-cover scale-[1.08] brightness-[0.55] contrast-[1.1] saturate-[0.9]">
+      <source src="videos/resina.mp4" type="video/mp4">
+    </video>
+    
+    <!-- POLARIZED CINEMA OVERLAY -->
+    <div class="absolute inset-0 bg-[#0f0f0f]/55"></div>
+    
+    <!-- GLASS BLUR EFFECT -->
+    <div class="absolute inset-0 backdrop-blur-[2px]"></div>
+    
+    <!-- EDITORIAL GRADIENT -->
+    <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/70"></div>
       <source src="videos/resina.mp4" type="video/mp4">
     </video>
 
