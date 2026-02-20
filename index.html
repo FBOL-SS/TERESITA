@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amatista Studio | Piezas artísticas para espacios extraordinarios</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'amatista-bg': '#F9F8F4', /* Blanco cálido / Ivory */
+                        'amatista-text': '#2A2A2A', /* Charcoal oscuro */
+                        'amatista-accent': '#B4A2A5', /* Tono amatista/lavanda suave */
+                        'amatista-gold': '#D4C5B9', /* Oro suave / Beige cálido */
+                    },
+                    fontFamily: {
+                        'serif': ['"Cormorant Garamond"', 'serif'],
+                        'sans': ['"Montserrat"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Animaciones suaves y transiciones de lujo */
+        body {
+            background-color: #F9F8F4;
+            color: #2A2A2A;
+            overflow-x: hidden;
+        }
+        
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            visibility: hidden;
+            transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+            will-change: opacity, visibility;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: none;
+            visibility: visible;
+        }
+
+        /* Efecto parallax suave para el hero */
+        .hero-bg {
+            background-image: url('https://images.unsplash.com/photo-1618220179428-22790b46a0eb?q=80&w=2574&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* Hover de imágenes tipo editorial */
+        .img-hover-zoom {
+            overflow: hidden;
+        }
+        .img-hover-zoom img {
+            transition: transform 1.5s ease;
+        }
+        .img-hover-zoom:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Botón estilo boutique */
+        .btn-luxury {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+        .btn-luxury::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: currentColor;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s ease;
+        }
+        .btn-luxury:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-amatista-accent selection:text-white">
+
+    <nav class="fixed w-full z-50 transition-all duration-500 bg-transparent py-6 px-8 flex justify-between items-center" id="navbar">
+        <div class="hidden md:flex space-x-8 text-xs tracking-widest uppercase text-white font-light">
+            <a href="#" class="btn-luxury">Inicio</a>
+            <a href="#" class="btn-luxury">Shop</a>
+        </div>
+        
+        <div class="text-center flex-grow md:flex-grow-0">
+            <h1 class="font-serif text-3xl md:text-4xl tracking-widest text-white transition-colors duration-500" id="logo">AMATISTA</h1>
+        </div>
+
+        <div class="hidden md:flex space-x-8 text-xs tracking-widest uppercase text-white font-light">
+            <a href="#" class="btn-luxury">Nosotros</a>
+            <a href="#" class="btn-luxury">Contacto</a>
+        </div>
+        
+        <div class="md:hidden text-white" id="mobile-menu-btn">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </div>
+    </nav>
+
+    <header class="relative h-screen flex items-center justify-center hero-bg">
+        <div class="absolute inset-0 bg-black bg-opacity-30"></div>
+        <div class="relative z-10 text-center px-4 flex flex-col items-center mt-20 fade-in-section is-visible">
+            <p class="font-serif italic text-amatista-accent text-xl md:text-2xl mb-4">Studio</p>
+            <h2 class="font-sans text-xs md:text-sm tracking-[0.3em] uppercase text-white mb-10 font-light max-w-lg leading-relaxed">
+                Piezas artísticas para espacios extraordinarios
+            </h2>
+            <a href="#intro" class="inline-block border border-white text-white px-10 py-4 text-xs tracking-widest uppercase hover:bg-white hover:text-amatista-text transition-colors duration-500">
+                Explorar Colección
+            </a>
+        </div>
+    </header>
+
+    <section id="intro" class="py-32 px-6 bg-amatista-bg text-center fade-in-section">
+        <div class="max-w-3xl mx-auto">
+            <p class="font-serif text-3xl md:text-5xl leading-tight text-amatista-text font-light mb-8">
+                "Creemos en la belleza de la pausa. Cada objeto es una invitación a habitar el presente con elegancia."
+            </p>
+            <p class="font-sans text-sm md:text-base font-light text-gray-500 leading-relaxed max-w-xl mx-auto">
+                Diseñamos y curamos piezas que trascienden la decoración. Espejos esculturales y objetos de acento creados para aportar luz, calma y una energía femenina inconfundible a tus espacios.
+            </p>
+        </div>
+    </section>
+
+    <section class="py-16 px-4 md:px-8 bg-amatista-bg">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 max-w-screen-2xl mx-auto">
+            
+            <div class="group relative h-[70vh] img-hover-zoom cursor-pointer fade-in-section">
+                <img src="https://images.unsplash.com/photo-1615529182904-14819c35db37?q=80&w=2000&auto=format&fit=crop" alt="Espejos" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-black bg-opacity-20 transition-opacity duration-500 group-hover:bg-opacity-30"></div>
+                <div class="absolute bottom-10 left-10">
+                    <h3 class="font-serif text-3xl text-white mb-2">Espejos</h3>
+                    <p class="font-sans text-xs tracking-widest text-white uppercase btn-luxury inline-block">Ver colección</p>
+                </div>
+            </div>
+
+            <div class="group relative h-[70vh] img-hover-zoom cursor-pointer fade-in-section" style="transition-delay: 0.2s;">
+                <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=2000&auto=format&fit=crop" alt="Decoración" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-black bg-opacity-20 transition-opacity duration-500 group-hover:bg-opacity-30"></div>
+                <div class="absolute bottom-10 left-10">
+                    <h3 class="font-serif text-3xl text-white mb-2">Decoración</h3>
+                    <p class="font-sans text-xs tracking-widest text-white uppercase btn-luxury inline-block">Ver objetos</p>
+                </div>
+            </div>
+
+            <div class="group relative h-[70vh] img-hover-zoom cursor-pointer fade-in-section">
+                <img src="https://images.unsplash.com/photo-1544457070-4cd773b4d71e?q=80&w=2000&auto=format&fit=crop" alt="Piezas Especiales" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-black bg-opacity-20 transition-opacity duration-500 group-hover:bg-opacity-30"></div>
+                <div class="absolute bottom-10 left-10">
+                    <h3 class="font-serif text-3xl text-white mb-2">Piezas Especiales</h3>
+                    <p class="font-sans text-xs tracking-widest text-white uppercase btn-luxury inline-block">Descubrir</p>
+                </div>
+            </div>
+
+            <div class="group relative h-[70vh] img-hover-zoom cursor-pointer fade-in-section" style="transition-delay: 0.2s;">
+                <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=2000&auto=format&fit=crop" alt="Personalizados" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-black bg-opacity-20 transition-opacity duration-500 group-hover:bg-opacity-30"></div>
+                <div class="absolute bottom-10 left-10">
+                    <h3 class="font-serif text-3xl text-white mb-2">Proyectos Personalizados</h3>
+                    <p class="font-sans text-xs tracking-widest text-white uppercase btn-luxury inline-block">Solicitar cotización</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="py-24 px-6 md:px-12 bg-white fade-in-section">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
+            <div class="w-full md:w-1/2 img-hover-zoom h-[80vh]">
+                <img src="https://images.unsplash.com/photo-1617104551722-3b2d51366400?q=80&w=2000&auto=format&fit=crop" alt="Artesanía" class="w-full h-full object-cover">
+            </div>
+            <div class="w-full md:w-1/2 flex flex-col justify-center">
+                <span class="font-sans text-xs tracking-[0.2em] text-amatista-accent uppercase mb-6 block">Filosofía de Estudio</span>
+                <h2 class="font-serif text-4xl md:text-5xl text-amatista-text mb-8 leading-tight">El valor de lo hecho a mano</h2>
+                <p class="font-sans font-light text-gray-500 mb-6 leading-relaxed">
+                    No creamos productos en serie. Cada espejo y objeto decorativo en Amatista Studio es tratado como una obra de arte independiente. Desde la selección de los materiales hasta el pulido final, honramos los procesos artesanales lentos y meticulosos.
+                </p>
+                <p class="font-sans font-light text-gray-500 mb-10 leading-relaxed">
+                    Nuestras texturas orgánicas, tonos cálidos y siluetas asimétricas están diseñadas para dialogar con la luz natural de tu entorno, convirtiendo un muro vacío en una galería personal.
+                </p>
+                <a href="#" class="self-start border-b border-amatista-text text-amatista-text pb-1 text-sm tracking-widest uppercase hover:text-amatista-accent hover:border-amatista-accent transition-colors duration-300">
+                    Conoce nuestra historia
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-32 px-6 bg-amatista-gold bg-opacity-20 text-center fade-in-section">
+        <div class="max-w-2xl mx-auto">
+            <h2 class="font-serif text-4xl md:text-5xl text-amatista-text mb-6">Tu Visión, Nuestra Obra</h2>
+            <p class="font-sans font-light text-gray-600 mb-10 leading-relaxed">
+                Trabajamos de la mano con interioristas, arquitectos y clientes particulares para dar vida a piezas statement a medida. Formatos gran escala, acabados únicos y diseño exclusivo.
+            </p>
+            <a href="#" class="inline-block bg-amatista-text text-white px-12 py-4 text-xs tracking-widest uppercase hover:bg-amatista-accent transition-colors duration-500">
+                Solicitar pieza personalizada
+            </a>
+        </div>
+    </section>
+
+    <footer class="bg-amatista-bg pt-24 pb-12 px-8 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+            <div class="col-span-1 md:col-span-2">
+                <h2 class="font-serif text-3xl tracking-widest text-amatista-text mb-6">AMATISTA</h2>
+                <p class="font-sans text-sm font-light text-gray-500 max-w-xs leading-relaxed">
+                    Estudio de diseño enfocado en piezas artísticas de alto impacto y espejos esculturales.
+                </p>
+            </div>
+            <div>
+                <h4 class="font-sans text-xs tracking-widest uppercase text-amatista-text mb-6 font-medium">Navegación</h4>
+                <ul class="space-y-4 font-sans text-sm font-light text-gray-500">
+                    <li><a href="#" class="hover:text-amatista-accent transition-colors">Shop</a></li>
+                    <li><a href="#" class="hover:text-amatista-accent transition-colors">Nosotros</a></li>
+                    <li><a href="#" class="hover:text-amatista-accent transition-colors">Proyectos a Medida</a></li>
+                    <li><a href="#" class="hover:text-amatista-accent transition-colors">Journal</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-sans text-xs tracking-widest uppercase text-amatista-text mb-6 font-medium">Contacto</h4>
+                <ul class="space-y-4 font-sans text-sm font-light text-gray-500">
+                    <li><a href="#" class="hover:text-amatista-accent transition-colors">Instagram</a></li>
+                    <li><a href="#" class="hover:text-amatista-accent transition-colors">WhatsApp</a></li>
+                    <li><a href="mailto:hola@amatistastudio.com" class="hover:text-amatista-accent transition-colors">hola@amatistastudio.com</a></li>
+                    <li class="pt-4 text-xs tracking-wider uppercase text-gray-400">Torreón, Coahuila, México</li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto text-center border-t border-gray-200 pt-8">
+            <p class="font-sans text-xs text-gray-400 font-light">&copy; 2026 Amatista Studio. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Navbar Scroll Effect
+            const navbar = document.getElementById('navbar');
+            const navLinks = navbar.querySelectorAll('a, h1, svg');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('bg-amatista-bg', 'shadow-sm');
+                    navbar.classList.remove('bg-transparent');
+                    navLinks.forEach(link => {
+                        link.classList.remove('text-white');
+                        link.classList.add('text-amatista-text');
+                    });
+                } else {
+                    navbar.classList.add('bg-transparent');
+                    navbar.classList.remove('bg-amatista-bg', 'shadow-sm');
+                    navLinks.forEach(link => {
+                        link.classList.add('text-white');
+                        link.classList.remove('text-amatista-text');
+                    });
+                }
+            });
+
+            // Fade in on scroll Observer
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in-section').forEach((section) => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
